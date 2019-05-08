@@ -1,20 +1,4 @@
-let ideas = []
-
-
-const ideaJSON = localStorage.getItem('ideas')
-if (ideaJSON !== null) {
-    ideas = JSON.parse(ideaJSON)
-}
-
-const renderIdea = function (ideas) {
-    const ideaList = document.querySelector('.list')
-    ideaList.innerHTML = ''
-    ideas.forEach(idea => {
-        const li = document.createElement('li')
-        li.textContent = idea.title
-        ideaList.appendChild(li)
-    })
-}
+let ideas = localStorageData()
 
 renderIdea(ideas)
 
@@ -26,7 +10,7 @@ document.querySelector('#addForm').addEventListener('submit', e => {
         createdAt: 1,
         updatedAt: 1  
     })
-    localStorage.setItem('ideas', JSON.stringify(ideas))
+    saveIdea(ideas)
     e.target.addIdea.value = ''
     renderIdea(ideas)
 })
