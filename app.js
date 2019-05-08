@@ -1,6 +1,6 @@
 let ideas = localStorageData()
 
-renderIdea(ideas)
+renderIdea(ideas, filters)
 
 document.querySelector('#addForm').addEventListener('submit', e => {
     e.preventDefault()
@@ -12,5 +12,10 @@ document.querySelector('#addForm').addEventListener('submit', e => {
     })
     saveIdea(ideas)
     e.target.addIdea.value = ''
-    renderIdea(ideas)
+    renderIdea(ideas, filters)
+})
+
+document.querySelector('#search').addEventListener('input', e => {
+    filters.search = e.target.value
+    renderIdea(ideas, filters)
 })
