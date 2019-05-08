@@ -20,3 +20,7 @@ document.querySelector('#search').addEventListener('input', e => {
     filters.search = e.target.value
     renderIdea(ideas, filters)
 })
+
+document.querySelector('#addButton').addEventListener('click',() => {
+    location.assign('./add-edit-idea.html')
+})
