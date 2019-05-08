@@ -5,6 +5,7 @@ renderIdea(ideas, filters)
 document.querySelector('#addForm').addEventListener('submit', e => {
     e.preventDefault()
     ideas.push({
+        id: generateID(),
         title: e.target.addIdea.value,
         description: '',
         createdAt: 1,

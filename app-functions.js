@@ -27,3 +27,7 @@ function renderIdea(ideas, filters) {
         ideaList.appendChild(li)
     })
 }
+
+function generateID() {
+     return Math.floor(Math.random() * 999999999999)
+}
