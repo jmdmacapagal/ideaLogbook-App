@@ -22,5 +22,5 @@ document.querySelector('#search').addEventListener('input', e => {
 })
 
 document.querySelector('#addButton').addEventListener('click',() => {
-    location.assign('./add-edit-idea.html')
+    location.assign('./views/add-edit-idea.html')
 })

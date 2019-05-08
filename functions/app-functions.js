@@ -22,10 +22,17 @@ function renderIdea(ideas, filters) {
     })
     ideaList.innerHTML = ''
     filteredIdeas.forEach(idea => {
-        const li = document.createElement('li')
-        li.textContent = idea.title
-        ideaList.appendChild(li)
+        ideaList.appendChild(generateIdeaList(idea))
     })
+}
+
+function generateIdeaList(idea) {
+    const li = document.createElement('li')
+    const a = document.createElement('a')
+    a.textContent = idea.title
+    a.setAttribute('href', `/views/add-edit-idea.html#${idea.id}`)
+    li.appendChild(a)
+    return li
 }
 
 function generateID() {
