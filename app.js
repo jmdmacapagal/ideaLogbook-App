@@ -1,24 +1,10 @@
-const ideas = [
-    {
-        title: 'new start-up idea',
-        description: 'lorem ipsum',
-        createdAt: 1,
-        updatedAt: 1
-    },
-    {
-        title: 'new start-up idea',
-        description: 'lorem ipsum',
-        createdAt: 2,
-        updatedAt: 2
-    },
-    {
-        title: 'new start-up idea',
-        description: 'lorem ipsum',
-        createdAt: 3,
-        updatedAt: 3
-    },
+let ideas = []
 
-]
+
+const ideaJSON = localStorage.getItem('ideas')
+if (ideaJSON !== null) {
+    ideas = JSON.parse(ideaJSON)
+}
 
 const renderIdea = function (ideas) {
     const ideaList = document.querySelector('.list')
@@ -40,6 +26,7 @@ document.querySelector('#addForm').addEventListener('submit', e => {
         createdAt: 1,
         updatedAt: 1  
     })
+    localStorage.setItem('ideas', JSON.stringify(ideas))
     e.target.addIdea.value = ''
     renderIdea(ideas)
 })
