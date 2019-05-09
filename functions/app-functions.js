@@ -1,5 +1,6 @@
 const filters = {
-    search: ''
+    search: '',
+    sortBy: ''
 }
 
 function localStorageData(ideas) {
@@ -17,6 +18,7 @@ function saveIdea(idea) {
 
 function renderIdea(ideas, filters) {
     const ideaList = document.querySelector('.list')
+  
     const filteredIdeas = ideas.filter(idea => {
         return idea.title.toLowerCase().includes(filters.search.toLowerCase())
     })
@@ -34,6 +36,7 @@ function generateIdeaList(idea) {
     li.appendChild(a)
     return li
 }
+
 
 function generateID() {
      return Math.floor(Math.random() * 999999999999)
