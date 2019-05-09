@@ -13,6 +13,10 @@ deleteButton.addEventListener('click', () => {
     location.assign('../index.html')
 })
 
+saveButton.addEventListener('click', () => {
+    saveIdea(ideas)
+    location.assign('../index.html')
+})
 
 window.addEventListener('storage', e => {
     if(e.key === 'ideas') {
