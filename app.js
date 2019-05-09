@@ -1,5 +1,6 @@
 let ideas = localStorageData()
 
+
 renderIdea(ideas, filters)
 
 document.querySelector('#addForm').addEventListener('submit', e => {
@@ -9,8 +10,8 @@ document.querySelector('#addForm').addEventListener('submit', e => {
         id: id,
         title: '',
         description: '',
-        createdAt: 1,
-        updatedAt: 1  
+        createdAt: generateTimestamp(),
+        updatedAt: generateTimestamp()  
     })
     saveIdea(ideas)
     location.assign(`./views/add-edit-idea.html#${id}`)

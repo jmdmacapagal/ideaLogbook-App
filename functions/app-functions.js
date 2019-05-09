@@ -3,6 +3,7 @@ const filters = {
     sortBy: ''
 }
 
+
 function localStorageData(ideas) {
     const ideaJSON = localStorage.getItem('ideas')
     if (ideaJSON !== null) {
@@ -28,6 +29,31 @@ function renderIdea(ideas, filters) {
     })
 }
 
+function updateIdea(ideas) {
+    let idea = ideas.find(function (idea) {
+        return idea.id == ideaId
+    })
+
+    if (idea === undefined) {
+        location.assign('../index.html')
+    }
+
+    ideaTitle.value = idea.title
+    ideaDescription.value = idea.description
+
+    ideaTitle.addEventListener('input', e => {
+        idea.title = e.target.value
+        idea.updatedAt = generateTimestamp()
+        saveIdea(ideas)
+    })
+
+    ideaDescription.addEventListener('input', e => {
+        idea.description = e.target.value
+        idea.updatedAt = generateTimestamp()
+        saveIdea(ideas)
+    })
+}
+
 function generateIdeaList(idea) {
     const li = document.createElement('li')
     const a = document.createElement('a')
@@ -40,4 +66,9 @@ function generateIdeaList(idea) {
 
 function generateID() {
      return Math.floor(Math.random() * 999999999999)
+}
+
+function generateTimestamp() {
+    const now = moment().valueOf()
+    return now
 }
