@@ -17,6 +17,16 @@ function saveIdea(idea) {
     localStorage.setItem('ideas', JSON.stringify(idea))
 }
 
+function removeIdea(id) {
+    const index = ideas.findIndex(idea => {
+        return idea.id === id
+    })
+
+    if (index > -1) {
+        ideas.splice(index, 1)
+    }
+}
+
 function renderIdea(ideas, filters) {
     const ideaList = document.querySelector('.list')
   
