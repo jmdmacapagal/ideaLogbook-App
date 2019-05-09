@@ -68,7 +68,7 @@ function generateIdeaList(idea) {
     const li = document.createElement('li')
     const a = document.createElement('a')
     a.textContent = idea.title
-    a.setAttribute('href', `/views/add-edit-idea.html#${idea.id}`)
+    a.setAttribute('href', `/views/edit.html#${idea.id}`)
     li.appendChild(a)
     return li
 }

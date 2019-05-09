@@ -13,8 +13,7 @@ deleteButton.addEventListener('click', () => {
     location.assign('../index.html')
 })
 
-saveButton.addEventListener('click', () => {
-    saveIdea(ideas)
+homeButton.addEventListener('click', () => {
     location.assign('../index.html')
 })
 

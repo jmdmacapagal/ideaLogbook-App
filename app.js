@@ -3,18 +3,8 @@ let ideas = localStorageData()
 
 renderIdea(ideas, filters)
 
-document.querySelector('#addForm').addEventListener('submit', e => {
-    const id = generateID()
-    e.preventDefault()
-    ideas.push({
-        id: id,
-        title: '',
-        description: '',
-        createdAt: generateTimestamp(),
-        updatedAt: generateTimestamp()  
-    })
-    saveIdea(ideas)
-    location.assign(`./views/add-edit-idea.html#${id}`)
+document.querySelector('#addButton').addEventListener('click', e => {
+    location.assign(`./views/add.html`)
 })
 
 document.querySelector('#search').addEventListener('input', e => {
