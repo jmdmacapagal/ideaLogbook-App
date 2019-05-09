@@ -1,9 +1,3 @@
-const filters = {
-    search: '',
-    sortBy: ''
-}
-
-
 function localStorageData(ideas) {
     const ideaJSON = localStorage.getItem('ideas')
     if (ideaJSON !== null) {
@@ -25,18 +19,6 @@ function removeIdea(id) {
     if (index > -1) {
         ideas.splice(index, 1)
     }
-}
-
-function renderIdea(ideas, filters) {
-    const ideaList = document.querySelector('.list')
-  
-    const filteredIdeas = ideas.filter(idea => {
-        return idea.title.toLowerCase().includes(filters.search.toLowerCase())
-    })
-    ideaList.innerHTML = ''
-    filteredIdeas.forEach(idea => {
-        ideaList.appendChild(generateIdeaList(idea))
-    })
 }
 
 function updateIdea(ideas) {
@@ -64,6 +46,40 @@ function updateIdea(ideas) {
     })
 }
 
+function sortIdea(ideas, sortBy) {
+    if (sortBy === 'byEdited') {
+        return ideas.sort((a, b) => {
+            if (a.updatedAt > b.updatedAt) {
+                return -1
+            } else if (a.updatedAt < b.updatedAt) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'byCreated') {
+        return ideas.sort((a, b) => {
+            if (a.createdAt > b.createdAt) {
+                return -1
+            } else if (a.createdAt < b.createdAt) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'alphabetical') {
+        return ideas.sort((a, b) => {
+            if (a.title < b.title) {
+                return -1
+            } else if (a.title > b.title) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    }
+}
+
 function generateIdeaList(idea) {
     const li = document.createElement('li')
     const a = document.createElement('a')
@@ -73,6 +89,18 @@ function generateIdeaList(idea) {
     return li
 }
 
+function renderIdea(ideas, filters) {
+    const ideaList = document.querySelector('.list')
+    ideas = sortIdea(ideas, filters.sortBy)
+
+    const filteredIdeas = ideas.filter(idea => {
+        return idea.title.toLowerCase().includes(filters.search.toLowerCase())
+    })
+    ideaList.innerHTML = ''
+    filteredIdeas.forEach(idea => {
+        ideaList.appendChild(generateIdeaList(idea))
+    })
+}
 
 function generateID() {
      return Math.floor(Math.random() * 999999999999)

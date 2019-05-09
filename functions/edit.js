@@ -3,7 +3,7 @@ const ideaId = location.hash.substring(1)
 const ideaTitle = document.querySelector('#ideaTitle')
 const ideaDescription = document.querySelector('#ideaDescription')
 const deleteButton = document.querySelector('#deleteButton')
-const saveButton = document.querySelector('#saveButton')
+const homeButton = document.querySelector('#homeButton')
 
 updateIdea(ideas)
 

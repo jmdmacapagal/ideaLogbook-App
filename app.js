@@ -1,5 +1,8 @@
 let ideas = localStorageData()
-
+const filters = {
+    search: '',
+    sortBy: 'byEdited'
+}
 
 renderIdea(ideas, filters)
 
@@ -14,7 +17,7 @@ document.querySelector('#search').addEventListener('input', e => {
 
 document.querySelector('#filter').addEventListener('change', e => {
     filters.sortBy = e.target.value
-    console.log(e.target.value)
+    renderIdea(ideas, filters)
 })
 
 window.addEventListener('storage', e => {
