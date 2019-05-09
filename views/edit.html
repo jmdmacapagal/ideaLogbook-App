@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../styles1.css">
     <title>Your Awesome Idea!</title>
 </head>
 <body>
-        <input type="text" id="ideaTitle" placeholder="Idea Title">
-        <textarea name="" id="ideaDescription" cols="30" rows="10" placeholder="Idea Description"></textarea>
-        <button id="deleteButton">Scrap Idea</button>
-        <button id="homeButton">Done</button>
+
+    <div class="container">
+        <h2>Edit Your Idea</h2>
+        <div class="content">
+            <input type="text" id="ideaTitle" placeholder="Idea Title">
+            <textarea name="" id="ideaDescription" cols="30" rows="10" placeholder="Idea Description"></textarea>
+            <div class="buttons">
+                <button id="homeButton">Done</button>
+                <button id="deleteButton">Scrap Idea</button>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
     <script src="../functions/app-functions.js"></script>

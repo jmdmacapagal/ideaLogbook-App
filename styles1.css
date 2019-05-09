@@ -1,0 +1,76 @@
+.container {
+    margin: 100px auto;
+    width: 400px;
+}
+
+h2 {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 48px;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+#ideaTitle {
+    padding: 5px 20px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+#ideaDescription {
+    padding: 5px;
+    height: 150px;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+.buttons {
+    display: flex;
+}
+
+#saveButton,
+#homeButton,
+#deleteButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-transform: uppercase;
+    background: rgb(77, 122, 245);
+    border: 1px solid #fff;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 3px;
+    transition: all 0.3s ease-in;
+}
+
+/* #deleteButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-transform: uppercase;
+    background: rgb(77, 122, 245);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 3px;
+    transition: all 0.3s ease-in;
+    margin-top: 5px;
+} */
+
+#saveButton:hover,
+#homeButton:hover {
+    background: #36bd87;
+    color: #fff;
+}
+
+#deleteButton:hover {
+    background: rgb(248, 67, 67);
+}
